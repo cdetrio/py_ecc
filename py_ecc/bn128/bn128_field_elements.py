@@ -15,6 +15,10 @@ assert pow(2, field_modulus, field_modulus) == 2
 # The modulus of the polynomial in this representation of FQ12
 FQ12_modulus_coeffs = [82, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0] # Implied + [1]
 
+# from pairings for beginners, section 7.3. Towered extension fields
+# > A nice short vector is V (x) = (x, 1, 0, 0, 0, −2, 0, 0), so indeed an optimal pairing is...
+# * is this vector the FQ12_modulus_coeffs ??
+
 # Extended euclidean algorithm to find modular inverses for
 # integers
 def inv(a, n):
@@ -99,7 +103,8 @@ class FQ():
         return FQ(-self.n)
 
     def __repr__(self):
-        return repr(self.n)
+        #return repr(self.n)
+        return repr(hex(self.n))
 
     @classmethod
     def one(cls):
@@ -202,6 +207,7 @@ class FQP():
 
     def __repr__(self):
         return repr(self.coeffs)
+        #return repr([hex(c.n) for c in self.coeffs])
 
     def __eq__(self, other):
         assert isinstance(other, self.__class__)

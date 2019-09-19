@@ -66,8 +66,12 @@ def miller_loop(Q, P):
 
 # Pairing computation
 def pairing(Q, P):
+    print("pairing Q, P")
+    print("assert Q is on curve...")
     assert is_on_curve(Q, b2)
+    print("assert P is on curve...")
     assert is_on_curve(P, b)
+    print("do miller loop...")
     return miller_loop(twist(Q), cast_point_to_fq12(P))
 
 def final_exponentiate(p):

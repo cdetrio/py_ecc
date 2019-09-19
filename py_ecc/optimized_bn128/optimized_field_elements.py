@@ -92,7 +92,8 @@ class FQ():
         return FQ(-self.n)
 
     def __repr__(self):
-        return repr(self.n)
+        #return repr(self.n)
+        return repr(hex(self.n))
 
     @classmethod
     def one(cls):
@@ -198,7 +199,8 @@ class FQP():
         return self.__class__(lm[:self.degree]) / low[0]
 
     def __repr__(self):
-        return repr(self.coeffs)
+        #return repr(self.coeffs)
+        return repr([hex(c) for c in self.coeffs])
 
     def __eq__(self, other):
         assert isinstance(other, self.__class__)
